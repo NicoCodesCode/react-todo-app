@@ -110,17 +110,18 @@ header {
 
 .task {
   list-style: none;
-  display: flex;
   margin: 0.5rem auto;
   padding: 10px;
   background-color: var(--color4);
   color: var(--color5);
   border-radius: 8px;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
   gap: 1rem;
   width: clamp(250px, 60vw, 300px);
   font-weight: 700;
+  overflow-x: auto;
 }
 
 .no-tasks-container {
@@ -135,5 +136,5 @@ header {
   background-color: var(--color1);
   color: var(--color5);
   font-weight: 600;
-  width: clamp(75px, 15vw, 100px);
+  width: clamp(75px, 15vw, 75px);
 }
