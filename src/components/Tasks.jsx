@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import { useContext, useEffect, useMemo } from "react";
 
 import { TasksContext } from "../TasksContext";
 import { actions } from "../tasksReducer";
@@ -9,12 +9,12 @@ export default function Tasks() {
   const { tasks, dispatch, filter } = useContext(TasksContext);
 
   const filteredTasks = useMemo(() => {
-    tasks.filter((task) => {
-      if (filter === "completed") return task.completed || [];
-      if (filter === "incomplete") return !task.completed || [];
-      return false;
+    return tasks.filter((task) => {
+      if (filter === "completed") return task.completed;
+      if (filter === "incomplete") return !task.completed;
+      return true;
     });
-  });
+  }, [filter]);
 
   return (
     <>
