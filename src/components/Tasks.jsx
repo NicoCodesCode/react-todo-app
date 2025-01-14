@@ -10,8 +10,8 @@ export default function Tasks() {
 
   const filteredTasks = useMemo(() => {
     tasks.filter((task) => {
-      if (filter === "completed") return task.completed;
-      if (filter === "incomplete") return !task.completed;
+      if (filter === "completed") return task.completed || [];
+      if (filter === "incomplete") return !task.completed || [];
       return false;
     });
   });
